@@ -16,7 +16,7 @@
 - [x] Rimosso il parametro pubblico `?preview=1`, che permetteva di anticipare le date.
 - [x] Rimosso il presepe geometrico non conforme alla direzione artistica richiesta.
 - [x] Finestra contenuti con chiusura via pulsante, clic sullo sfondo, tasto Escape e contenimento del focus.
-- [x] Aggiunto supporto `prefers-reduced-motion`, focus visibile e layout responsivo.
+- [x] Aggiunto supporto `prefers-reduced-motion`, focus visibile e layout responsive.
 - [x] Nessun backend, database, API o framework aggiunto.
 - [x] Percorsi locali relativi.
 
@@ -30,10 +30,11 @@ I file JavaScript sono stati sottoposti al controllo sintattico di Node.js. La s
 - Animazione 3D e comportamento touch su Safari iOS e browser Android.
 - Ciclo completo di interazione con la modale tramite tecnologie assistive.
 - Cambio reale della data a mezzanotte durante una sessione aperta.
-- Player musicale: rimosso dalla homepage e dal progetto su richiesta.
+- Riproduzione audio: il progetto non contiene ancora un brano `assets/audio/avvento.mp3`.
 
 ## Da completare prima della pubblicazione
 
 1. Far approvare alla Parrocchia tutti i testi, le preghiere, le citazioni e i riferimenti biblici.
+2. Inserire un brano natalizio autorizzato in `assets/audio/avvento.mp3`.
 3. Eseguire un collaudo manuale su smartphone, tablet e desktop.
 4. Verificare la resa con la versione definitiva dei contenuti e degli eventuali asset.
