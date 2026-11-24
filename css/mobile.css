@@ -67,3 +67,14 @@
 @media (prefers-reduced-motion:reduce) {
   *,*::before,*::after { scroll-behavior:auto!important; animation-duration:.01ms!important; animation-iteration-count:1!important; transition-duration:.01ms!important; }
 }
+
+/* Fallback mobile: griglia sempre visibile e caselle leggibili anche prima dell'Avvento. */
+@media (max-width:760px) {
+  #door-grid.door-grid { display:grid !important; grid-template-columns:repeat(3,minmax(0,1fr)); gap:10px; visibility:visible; }
+  #door-grid .door { display:block; width:100%; min-height:96px; height:clamp(96px,28vw,122px); opacity:1; filter:none; -webkit-appearance:none; appearance:none; }
+  #door-grid .door:disabled { opacity:1; filter:none; color:#f0dba9; }
+  #door-grid .door-number { display:grid; visibility:visible; color:#f5dfb2; font-size:clamp(34px,9vw,43px); }
+  #door-grid .door-label { display:block; visibility:visible; color:#f0d9ad; }
+  #door-grid .door-leaf { display:block; visibility:visible; }
+  #door-grid .door:nth-child(25) { grid-column:2; }
+}
