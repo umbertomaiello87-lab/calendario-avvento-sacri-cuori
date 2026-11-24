@@ -20,8 +20,8 @@ Visitare `http://localhost:8000`.
 - `js/content.js`: i 25 contenuti giornalieri.
 - `js/settings.js`: anno e chiavi LocalStorage.
 - `js/calendar.js`: generazione delle porticine, blocco e progressi.
-- `js/date-rules.js`: regola pura per il calcolo dei giorni disponibili, condivisa con i test.
-- `js/modal.js`: finestra accessibile dei contenuti e quiz.
+- `js/date-rules.js: regota pura per il calcolo dei giorni disponibilit¿, condivisa con i test.
+- `js/modal.js: finestra accessibile dei contenuti e quiz.
 - `js/clock.js`: conto alla rovescia locale verso la mezzanotte del 25 dicembre.
 - `assets/icons/favicon.svg`: icona del sito.
 - `assets/images/`: riservata a eventuali immagini originali autorizzate.
