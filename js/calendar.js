@@ -17,10 +17,14 @@
     try { localStorage.setItem(settings.storageKey, JSON.stringify(readDays)); }
     catch { toast('Il browser non consente di salvare i progressi su questo dispositivo.'); }
   }
-  // The device's local calendar is intentionally authoritative for this static site.
+  // La data italiana è la stessa per tutti, indipendentemente dal fuso del dispositivo.
   function localDate() {
     const now = new Date();
-    return { year: now.getFullYear(), month: now.getMonth(), day: now.getDate(), now };
+    const parts = new Intl.DateTimeFormat('en-GB', {
+      timeZone: 'Europe/Rome', year: 'numeric', month: '2-digit', day: '2-digit'
+    }).formatToParts(now);
+    const value = Object.fromEntries(parts.map(part => [part.type, part.value]));
+    return { year: Number(value.year), month: Number(value.month) - 1, day: Number(value.day), now };
   }
   function availableDay(date = localDate()) {
     return window.AdventDate.availableDay(date);
@@ -33,7 +37,7 @@
     toast.timer = setTimeout(() => el.classList.remove('show'), 2600);
   }
   function formatToday(date) {
-    return new Intl.DateTimeFormat('it-IT', {weekday:'long', day:'numeric', month:'long', year:'numeric'}).format(date.now);
+    return new Intl.DateTimeFormat('it-IT', {timeZone:'Europe/Rome', weekday:'long', day:'numeric', month:'long', year:'numeric'}).format(date.now);
   }
   function render() {
     const grid = $('door-grid');
@@ -91,9 +95,9 @@
   }
   function scheduleMidnightRefresh() {
     clearTimeout(refreshTimer);
-    const now = new Date();
-    const nextMidnight = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1, 0, 0, 1);
-    refreshTimer = setTimeout(render, Math.max(1000, nextMidnight.getTime() - now.getTime()));
+    // Ricontrolla periodicamente: il cambio di giorno segue Europe/Rome anche se
+    // il telefono o il computer è impostato su un altro fuso orario.
+    refreshTimer = setTimeout(render, 30 * 1000);
   }
   document.addEventListener('visibilitychange', () => { if (!document.hidden) render(); });
   window.addEventListener('focus', render);
