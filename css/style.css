@@ -3,7 +3,8 @@
 
 /* Door layering: keep numbers and labels above the animated leaf */
 .door { isolation:isolate; overflow:visible; }
-.door-number,.door-label { position:relative; z-index:2; pointer-events:none; }
+.door-number { position:relative; z-index:2; pointer-events:none; }
+.door-label { z-index:2; pointer-events:none; }
 .door-leaf { z-index:1; pointer-events:none; }
 .door.opened .door-leaf { z-index:1; }
 .door:focus-visible { outline:3px solid var(--gold-light); outline-offset:4px; }
